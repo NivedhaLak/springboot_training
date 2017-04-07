@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<bean id="msg" class="com.demo.spring.Message">
+		<constructor-arg value="Lunch Break" />
+		<constructor-arg value="We will break for Lunch on Invitation!!" />
+	</bean>
+
+	<!-- <bean id="mail" class="com.demo.spring.Mail" scope="prototype"> <property 
+		name="to" value="all" /> <property name="from" value="trainer" /> <property 
+		name="message" ref="msg" /> </bean> -->
+
+	<bean id="mail" class="com.demo.spring.Mail" p:to="all" p:from="trainer"
+		p:message-ref="msg" />
+
+	<util:list id="list" list-class="java.util.ArrayList"
+		value-type="java.lang.String">
+		<value>Scott</value>
+		<value>Tiger</value>
+		<value>Oracle</value>
+	</util:list>
+
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.demo.hibernate.Emp" table="EMP1">
+		<id name="empNo" type="integer" column="EMPID">
+			<generator class="assigned" />
+		</id>
+		<property name="ename" type="string" column="NAME" />
+		<property name="city" type="string" column="CITY" />
+		<property name="salary" type="double" column="SALARY" />
+
+		<component name="address" class="com.demo.hibernate.Address">
+			<property name="doorNo" type="string" column="DOOR_NO" />
+			<property name="street" type="string" column="STREET" />
+			<property name="pinNo" type="string" column="PIN" />
+		</component>
+
+	</class>
+
+</hibernate-mapping>
